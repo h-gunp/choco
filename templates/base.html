@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>초코파이 인사이드</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1><em><a href="/">초코파이 인사이드...</a></em></h1>
+        <hr><p>초코파이에 대해 토론하는 곳 입니다..</p><hr>
+        
+        <ol>
+            <h3>게시글 목록</h3>
+            {% if topics %}
+                {% for topic in topics %}
+                    <li><a href="/read/{{ topic.id }}/">{{ topic.title }}</a></li>
+                {% endfor %}
+            {% else %}
+                <li>게시글이 없습니다.</li>
+            {% endif %}
+        </ol>
+        
+        <hr>
+        
+        {% block content %}{% endblock %}
+        
+        <br><br>
+        
+        <a href="/create/"><input type="button" value="글쓰기"></a>
+        
+        {% block menu %}{% endblock %}
+
+    </div>
+    </body>
+</html>

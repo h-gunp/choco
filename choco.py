@@ -33,10 +33,10 @@ def init_db():
             """
             cursor.execute(create_table_sql)
 
-        print("데이터베이스와 테이블이 성공적으로 준비되었습니다.")
+        print("데이터베이스 연결 완료.")
 
     except Exception as e:
-        print(f"데이터베이스 초기화 중 오류 발생: {e}")
+        print(f"오류 발생: {e}")
     finally:
         if conn:
             conn.close()

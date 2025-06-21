@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ topic.title }}</h2>
+    <p>{{ topic.body }}</p>
+{% endblock %}
+
+{% block menu %}
+    <a href="/update/{{ topic.id }}"><input type="button" value="수정하기"></a>
+    <form action="/delete/{{ topic.id }}" method="POST" style="display: inline;">
+        <input type="submit" value="삭제하기" onclick="return confirm('정말로 삭제하시겠습니까?');">
+    </form>
+{% endblock %}
